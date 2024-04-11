@@ -2,12 +2,11 @@
 	"name": "backend",
 	"version": "1.0.0",
 	"description": "",
+	
 	"main": "server.js",
 	"scripts": {
-		"dev": "set NODE_ENV=development && nodemon backend/server.js",
-		"start": "set NODE_ENV=production &&  node backend/server.js",
-
-	
+		"dev": "NODE_ENV=development concurrently \"nodemon backend/server.js\" \"npm start --prefix frontend\"",
+		"start": " cross-env NODE_ENV=production node backend/server.js",
 		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
 	},
 	"type": "module",
